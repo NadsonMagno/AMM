@@ -19,16 +19,13 @@ INICIO:
 	OUT 	2
 
 	MOV	CL, 2
-	MOV	BL, 2
+	MOV	BL, 3
 
 
 
 
 LOOP:
 	
-	MOV	AL, [BL]
-	DEC	AL
-	OUT	2
 	
 	MOV	AL, [CL]
 	OUT	2
@@ -36,6 +33,10 @@ LOOP:
 	CMP	AL,[B]
 	JNZ	LOOP
 	
+	
+	MOV	AL, [BL]
+	DEC	AL
+	OUT	2
 	MOV	AL,FB
 	OUT	2
 	INC	BL
