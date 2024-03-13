@@ -1,0 +1,45 @@
+
+	org 	0
+	JMP INICIO
+		DB FB
+		DB B
+		DB B7
+		DB 9F
+		DB 4F
+		DB DD
+		DB FD
+		DB 8B
+		DB FF
+		DB DF
+INICIO: 
+
+
+
+	MOV	 AL, 0 
+	OUT 	2
+
+	MOV	CL, 2
+	MOV	BL, 2
+
+
+
+
+LOOP:
+	
+	MOV	AL, [BL]
+	DEC	AL
+	OUT	2
+	
+	MOV	AL, [CL]
+	OUT	2
+	INC	CL
+	CMP	AL,[B]
+	JNZ	LOOP
+	
+	MOV	AL,FB
+	OUT	2
+	INC	BL
+	MOV	CL, 2
+	JMP	LOOP
+
+END
