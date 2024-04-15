@@ -1,0 +1,27 @@
+
+
+ORG    0
+   	 
+	
+	JMP INICIO
+  
+
+INICIO:    
+ 	IN 0
+	MOV	[BL], AL
+	CMP	AL, 08
+	JZ	APAGA
+	
+	INC	BL
+	JMP	INICIO
+APAGA:
+	MOV DL, 20
+	MOV [BL],DL
+	DEC BL
+	MOV [BL], DL
+	JMP INICIO
+
+
+FIM:
+END
+    
