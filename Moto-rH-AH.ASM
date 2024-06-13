@@ -1,0 +1,48 @@
+
+	ORG    0
+   	 
+	
+
+  
+
+
+ANGULO:
+	IN 00
+	
+	
+	
+
+DIRECAO:
+	IN 00
+	CMP	AL, 48
+	JNS	HORARIO
+	CMP	AL, 41
+	JNS	ANTIHORARIO
+	JMP	FIM
+
+HORARIO:
+	MOV	[BL], AL
+	MOV	BL, [BL]
+	MOV	AL, 11
+	
+LOOP:
+	OUT    05
+	ROL    AL
+	DEC    BL
+	JNZ    LOOP
+
+	JMP    FIM
+ANTIHORARIO:
+	MOV	[BL], AL
+	MOV	BL, [BL]
+	MOV	AL, 11
+	
+LOOP2:
+	OUT    05
+	ROR    AL
+	DEC    BL
+	JNZ    LOOP2
+
+	JMP    FIM
+FIM:
+END
